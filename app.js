@@ -19,7 +19,7 @@ const storage = multer.diskStorage({
 });
 const upload = multer({ storage: storage }).single("avatar");
 app.set("view engine", "ejs");
-app.use(express.static("public"))
+app.use(express.static("public"));
 
 // ROUTES
 
@@ -52,11 +52,7 @@ app.get("/download", (req, res) => {
 
 // Listening
 
-const PORT = process.env.PORT;
-if (PORT == null || PORT==""){
-  PORT = 4300
-}
-
+const PORT = 4300 || process.env.PORT;
 
 app.listen(PORT, () => {
   console.log(`Your Converter is running on port = ${PORT}`);
