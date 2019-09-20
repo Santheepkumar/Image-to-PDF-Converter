@@ -52,7 +52,11 @@ app.get("/download", (req, res) => {
 
 // Listening
 
-const PORT = 4300 || process.env.PORT;
+let PORT = process.env.PORT;
+
+if (PORT == null || PORT == "") {
+  PORT = 4300;
+}
 
 app.listen(PORT, () => {
   console.log(`Your Converter is running on port = ${PORT}`);
